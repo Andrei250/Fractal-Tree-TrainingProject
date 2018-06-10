@@ -26,7 +26,8 @@
 
 	<canvas id="chenar" class="chenarel" width="1000" height = "1000"></canvas>
 
-
+	<input type="text" id="angle">
+	<button onclick="clicker()">Submit</button>
 
 
 </body>
@@ -36,6 +37,17 @@
 	var element = document.getElementById("chenar");
 	var ctx = element.getContext("2d");
 
+
+	function clicker(){
+
+		var angle = document.getElementById("angle").value;
+
+		ctx.save();
+		ctx.setTransform(1, 0, 0, 1, 0, 0);
+		ctx.clearRect(0, 0, element.width, element.height);
+		ctx.restore();
+		ceva(300,angle);
+	}
 
 	function start(){
 		ctx.beginPath();
@@ -53,7 +65,7 @@
 
 	function ceva(length,angle){
 
-		if(length<5)
+		if(length<10)
 		{	
 			ctx.moveTo(0,0);
 			ctx.lineTo(0,-length);
